@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout" th:with="displayFooter=false, className=item_wrapper, modelId=${modelId}, generationId=${generationId}, categoryId=${categoryId}">
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout.html (Layouts/layout) */ -->
+		<th:block layout:fragment="content">
+			<article class="head">
+				<nav class="topicpath">
+					<ul>
+						<li class="top"><a th:href="@{/index}">TOP</a></li>
+						<li class="item current"><span>アクセサリー一覧</span></li>
+						<li class="campaign"><a th:href="@{/campaign(model_id=${modelId},generation_id=${generationId},ctg=${categoryId})}">キャンペーン</a></li>
+						<li class="quotation"><a th:href="@{/quotation(model_id=${modelId},generation_id=${generationId},ctg=${categoryId})}">お見積り</a></li>
+						<li class="model"><span class="name"><b th:text="${modelName}"></b></span><span class="type" th:text="${modelType}"></span></li>
+					</ul>
+				</nav>
+				<div class="wrap">
+					<nav class="category">
+						<ul>
+							<li>
+								<a	th:class="${categoryId == null}?'current'"
+									th:href="${categoryId != null}? @{/item(model_id=${modelId},generation_id=${generationId})}:'javascript:void(0)'">
+									すべて
+								</a>
+							</li>
+							<li th:each="category : ${categorys}">
+								<a	th:class="${categoryId == category.getId()}?'current'"
+									th:href="${categoryId != category.getId()}? @{/item(model_id=${modelId},generation_id=${generationId},ctg=${category.getId()})}:'javascript:void(0)'"
+									th:text="${category.getCategoryName()}"
+								></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</article>
+			<article class="main">
+				<div class="wrap">
+					<section class="item_list">
+						<ul>
+							<li class="has_modal modal_content" th:each="item : ${items}" th:id="${item.getItemCode()}" th:attr="obj_id=${item.getId()}, paint_flg=${item.getPaintFlg()}, model_id=${item.getModelId()}">
+								<div class="pic"><img th:if="${item.getImgPath()} != null" th:src="${item.getImgPath()}" th:alt="${item.getItemName()}"></div>
+								<div class="info">
+									<div class="name">
+										<h3 class="item_name" th:inline="text">[[${item.getItemName()}]]</h3>
+										<div class="code" th:inline="text">[[${item.getPartsNo1()!=null?item.getPartsNo1():''}]] [[${item.getPartsNo2()!=null?item.getPartsNo2():''}]] [[${item.getPartsNo3()!=null?item.getPartsNo3():''}]] [[${item.getPartsNo4()!=null?item.getPartsNo4():''}]]</div>
+									</div>
+									<div class="cost">
+										<div class="price" th:inline="text">[[${item.getPriceInTax() != null ? #numbers.formatDecimal(item.getPriceInTax(), 0, 'COMMA', 0, 'POINT') : 0}]]<span class="net" th:text="${item.getPrice() != null ? #numbers.formatDecimal(item.getPrice(), 0, 'COMMA', 0, 'POINT') : 0}"></span></div>
+										<div class="wage">参考取付時間(H)：<span class="hour" th:text="${item.getCost() != null ? #numbers.formatDecimal(item.getCost(),1,1) : ''}"></span></div>
+									</div>
+									<div class="catch" th:utext="${#strings.replace( #strings.escapeXml( item.getDescription() != null? item.getDescription():''),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"></div>
+									<div class="spec">
+										<div th:utext="${item.getSpec()}"></div>
+										<div th:utext="${item.getExcludedItem()}"></div>
+										<div th:utext="${item.getCaution()}"></div>
+										<div th:utext="${item.getMustItem()}"></div>
+										<div th:utext="${item.getSaleInfo()}"></div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout_blank">
+	<head>
+		<script th:inline="javascript">
+		var arrayCart = [[${param}]];
+		console.log(arrayCart);
+		</script>
+	</head>
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout_blank.html (Layouts/layout) */ -->
+		<th:block layout:fragment="content">
+			<article class="main">
+				<div class="wrap">
+					<section class="form">
+						<form class="login_form" th:action="@{/shop}" method="post">
+							<fieldset class="id">
+								<div class="message errorDb" th:if="${errorDb}" th:inline="text">[[#{message.error.101}]]</div>
+								<div class="message error002" th:if="${!errorDb && param.error != null}" th:inline="text">[[#{message.error.002}]]</div>
+								<div class="message error001" style="display: none;" th:inline="text">[[#{message.error.001}]]</div>
+								<input type="text" id="username" maxlength="20" placeholder="ログインID" />
+								<input type="hidden" id="username_md5" name="username" />
+							</fieldset>
+							<fieldset class="password">
+								<input type="password" id="password" maxlength="20" placeholder="パスワード" />
+								<input type="hidden" id="password_md5" name="password"/>
+							</fieldset>
+							<fieldset class="button_area">
+								<button type="button" id="btnSubmit" name="btnSubmit" class="login">ログイン</button>
+							</fieldset>
+						</form>
+						<a th:href="@{/change_password(loginUrl=shop)}" class="link">パスワード変更はこちら</a>
+					</section>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

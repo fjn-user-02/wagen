@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout_blank" th:with="className='quotation_wrapper print'">
+	<head>
+		<script th:inline="javascript">
+			var arrayCart = JSON.parse([[${arrayCart}]]);
+			var arrayCharge = JSON.parse([[${arrayCharge}]]);
+		</script>
+	</head>
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout_blank.html (Layouts/layout_blank) */ -->
+		<th:block layout:fragment="content">
+			<article class="head">
+				<div class="wrap">
+					<section class="cart_list">
+						<h2>お見積もりの結果</h2>
+						<div class="serial">
+							<span class="label">見積番号：</span><span class="number" th:inline="text">[[${estimatedNumber}]]</span>
+						</div>
+					</section>
+				</div>
+			</article>
+			<article class="main">
+				<div class="wrap">
+					<input id="hidTaxValue" type="hidden" th:value="${taxValue}"></input>
+					<section class="cart_list">
+						<ul></ul>
+					</section>
+					<section class="charge">
+						<div class="paint">
+							<span class="label">塗装費:</span>
+							<span class="price"></span>
+						</div>
+						<div class="discount">
+							<span class="label">値引き:</span>
+							<span class="price discount_price"></span>
+						</div>
+						<div class="memo">
+							<span class="label">特記事項:</span>
+							<span class="text"></span>
+						</div>
+					</section>
+					<section class="subtotal">
+						<div class="net">
+							<span class="label">小計</span>
+							<span class="price">0</span>
+						</div>
+						<div class="tax">
+							<span class="label">消費税（<span class="tax" th:text="${taxValue!=null?#numbers.formatInteger(taxValue*100,0):0}"></span>%）</span>
+							<span class="price">0</span>
+						</div>
+					</section>
+					<section class="total">
+						<div class="all">
+							<span class="label">合計</span>
+							<span class="price">0</span>
+						</div>
+					</section>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

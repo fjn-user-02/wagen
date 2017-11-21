@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout_blank" th:with="className=error_wrapper">
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout_blank.html (Layouts/layout_blank) */ -->
+		<th:block layout:fragment="content">
+			<article class="art-error">
+				<div>
+					<h2 th:inline="text">エラー [[${intHttpStatus}]]</h2>
+					<div class="error" th:inline="text">
+						リクエスト"[[${strPath}]]""を解決できません。<br><br>
+						要求されたページへのアクセス権限がありません。<br>
+						下記リンクより再度ログインし直してください。<br>
+						<a th:href="@{/logout}">再ログイン</a>
+					</div>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

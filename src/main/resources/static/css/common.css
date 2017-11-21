@@ -1,0 +1,509 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	background-color: #FFF;
+	font-family: 'Shin Go Light', 'Shin Go Regular', 'Shin Go Bold', sans-serif;
+}
+body * {
+	position: relative;
+	box-sizing: border-box;	
+	overflow: hidden;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+ul, ol, li {
+	display: block;
+}
+header {
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	z-index: 99;
+}
+header .wrap {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	height: 60px;
+	background: url(../img/common/logo.png) no-repeat right 2% center;
+	background-size: 40px 40px;
+}
+header h1 {
+	width: 60%;
+	height: 25px;
+	margin-left: 5%;
+	font-family: 'VW Head Regular';
+	font-size: 20px;
+}
+.wrpper.print header h1 {
+	width: 70%;
+}
+@media screen and (max-width: 420px) {
+header h1 {
+	font-size: 18px;
+}
+}
+header h1 b {
+	font-family: 'VW Head ExtraBold';
+	color: #0C5DB8;
+}
+header .navi {
+	width: 40%;
+}
+header .navi ul {
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding-right: calc(7% + 40px);
+	text-align: right;
+}
+header .navi ul li {
+	height: 60px;
+	font-size: 12px;
+}
+header .navi ul li.account {
+	display: inline-block;
+	width: calc(100% - 192px);
+	height: auto;
+	line-height: 1.2;
+	font-size: 11px;
+}
+header .navi ul li:not(.account) {
+	width: 48px;
+}
+@media screen and (max-width: 860px) {
+header .navi ul li.account {
+	width: calc(100% - 168px);
+}
+header .navi ul li:not(.account) {
+	width: 42px;
+}
+}
+@media screen and (max-width: 640px) {
+header .navi ul li.account {
+	width: calc(100% - 144px);
+}
+header .navi ul li:not(.account) {
+	width: 36px;
+}
+}
+@media screen and (max-width: 420px) {
+header .navi ul li.account {
+	width: calc(100% - 120px);
+}
+header .navi ul li:not(.account) {
+	width: 30px;
+}
+}
+header .navi ul li a {
+	display: block;
+	height: 60px;
+	white-space: nowrap;
+	text-indent: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 30px 24px;
+	cursor: pointer;
+}
+header .navi ul li.logout a {
+	background-image: url(../img/common/icon_account.png);
+}
+header .navi ul li.quotation a {
+	background-image: url(../img/common/icon_doc.png);
+}
+header .navi ul li.clear a {
+	background-image: url(../img/common/icon_memo.png);
+}
+header .navi ul li.cart a {
+	background-image: url(../img/common/icon_cart.png);
+}
+header .navi ul li.cart .badge {
+	position: absolute;
+	display: inline-block;
+	width: auto;
+	height: 2em;
+	top: 8px;
+	left: 2px;
+	padding: 0 0.5em;
+	background-color: #1A619C;
+	border: 2px solid #FFF;
+	border-radius: 1em;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	font-size: 12px;
+	line-height: 1.7em;
+	color: #FFF;
+	pointer-events: none;
+}
+header .navi ul li.cart .badge:empty {
+	display: none;
+}
+@media screen and (max-width: 640px) {
+header .navi ul li.cart .badge {
+	font-size: 10px;
+}
+}
+article.head {
+	position: fixed;
+	width: 100%;
+	top: 60px;
+	left: 0;
+	overflow: hidden;
+	z-index: 50;
+}
+article.main {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	overflow: auto;
+	z-index: 10;
+	-webkit-overflow-scrolling: touch;
+}
+.topicpath {
+	width: 100%;
+	height: 50px;
+	background-color: #CCC;
+}
+.topicpath:before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 40%;
+	height: 50px;
+	top: 0;
+	left: 0;
+	background-color: #6190C5;
+}
+.topicpath > ul {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+	padding-right: 5%;
+}
+.topicpath > ul > li {
+	width: 18.5%;
+	overflow: visible;
+}
+.topicpath > ul > li:nth-child(1) {
+	z-index: 4;
+	padding-left: 1em;
+}
+.topicpath > ul > li:nth-child(2) {
+	z-index: 3;
+}
+.topicpath > ul > li:nth-child(3) {
+	z-index: 2;
+}
+.topicpath > ul > li:nth-child(4) {
+	z-index: 1;
+}
+.topicpath > ul > li.model {
+	width: 26%;
+	font-size: 14px;
+	line-height: 50px;
+	text-align: right;
+	color: #000;
+}
+.topicpath > ul > li.model .name {
+	padding-right: 0.5em;
+	font-family: 'VW Head Regular';
+}
+.topicpath > ul > li.model .name b {
+	font-family: 'VW Head ExtraBold';
+}
+.topicpath > ul > li:not(.model) {
+	background-color: #6190C5;
+}
+.topicpath > ul > li:not(.model):after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	left: 100%;
+	margin: -25px 0 0 -25px;
+	background-color: #6190C5;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #6190C5;
+	border-left: 1px solid #6190C5;
+	border-radius: 6px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.topicpath > ul > li.current:after {
+	background-color: #0C5DB8;
+	border-bottom: 1px solid #0C5DB8;
+	border-left: 1px solid #0C5DB8;
+}
+.topicpath > ul > li > a,
+.topicpath > ul > li.current > span {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	font-size: 13px;
+	color: #FFF;
+	z-index: 3;
+}
+.topicpath > ul > li:not(:first-child):not(:last-child) > a,
+.topicpath > ul > li:not(:first-child):not(:last-child) > span {
+	padding-left: 50px;
+}
+.topicpath > ul > li.campaign > a,
+.topicpath > ul > li.campaign > span {
+	padding-left: 80px !important;
+	background: url(../img/common/icon_sale.png) no-repeat 45px center;
+	background-size: 30px 30px;
+}
+.topicpath > ul > li.current {
+	background-color: #0C5DB8;
+}
+.topicpath > ul > li.model {
+	position: absolute;
+	width: auto;
+	top: 0;
+	right: 5%;
+}
+.topicpath > ul > li.model .name {
+  
+}
+@media screen and (max-width: 860px) {
+.topicpath > ul > li {
+	display: inline-block;
+	width: auto;
+}
+.topicpath > ul > li > a,
+.topicpath > ul > li > span {
+	display: inline-block;
+}
+}
+@media screen and (max-width: 640px) {
+.topicpath > ul > li > a,
+.topicpath > ul > li > span {
+	font-size: 11px !important;
+}
+.topicpath > ul > li:not(:first-child):not(:last-child) > a,
+.topicpath > ul > li:not(:first-child):not(:last-child) > span {
+	padding-left: 2em;
+}
+.topicpath > ul > li.campaign > a,
+.topicpath > ul > li.campaign > span {
+	padding-left: 4em !important;
+	background-position: 2em center;
+	background-size: 20px 20px;
+}
+.topicpath > ul > li:not(.model):before,
+.topicpath > ul > li:not(.model):after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 50%;
+	left: 100%;
+	background-color: transparent;
+	border-radius: 0;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+.topicpath > ul > li:not(.model):before {
+	border: 25px solid transparent;
+	border-left: 16px solid #FFF;
+	border-right-width: 0;
+	margin: -25px 0 0 1px;
+	z-index: 2;
+}
+.topicpath > ul > li:not(.model):after {
+	border: 25px solid transparent;
+	border-left: 16px solid #6190C5;
+	border-right-width: 0;
+	margin: -25px 0 0 0;
+	z-index: 2;
+}
+.topicpath > ul > li.current:after {
+	border-left: 16px solid #0C5DB8;
+}
+}
+@media screen and (max-width: 480px) {
+.topicpath > ul > li:nth-child(1) {
+	padding-left: 0.5em;
+}
+.topicpath > ul > li > a,
+.topicpath > ul > li > span {
+	font-size: 10px;
+}
+}
+.wrap {
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+footer {
+	position: fixed;
+	width: 100%;
+	height: auto;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+}
+footer .info {
+	width: 100%;
+	height: 45px;
+	background-color: #E9E9E9;
+	line-height: 45px;
+}
+footer .info .wrap {
+	padding: 0 50px;
+}
+@media screen and (max-width: 1024px) {
+footer .info .wrap {
+	padding: 0 5%;
+}
+}
+footer .info .wrap > h3 {
+	display: inline-block;
+	width: 100px;
+	padding-left: 20px;
+	font-size: 16px;
+}
+footer .info .wrap > h3:before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	top: 50%;
+	left: 5px;
+	margin-top: -5px;
+	border: 5px solid transparent;
+	border-left: 10px solid #000;
+	pointer-events: none;
+}
+footer .info .wrap > span {
+	display: inline-block;
+	padding-left: 5px;
+	font-size: 11px;
+}
+@media screen and (max-width: 480px) {
+footer .info {
+	height: auto;
+	padding: 5px 0;
+	line-height: 1.5;
+}
+footer .info .wrap > h3,
+footer .info .wrap > span {
+	display: block;
+}
+footer .info .wrap > span {
+	padding-left: 20px;
+}
+}
+footer .banner {
+	width: 100%;
+	background-color: #4E4E4E;
+}
+footer .banner .wrap {
+	padding: 13px 50px;
+}
+@media screen and (max-width: 1024px) {
+footer .banner .wrap {
+	padding: 13px 5%;
+}
+}
+@media screen and (max-width: 860px) {
+footer .banner .wrap {
+	padding: 12px 5%;
+}
+}
+@media screen and (max-width: 640px) {
+footer .banner .wrap {
+	padding: 10px 5%;
+}
+}
+@media screen and (max-width: 48px) {
+footer .banner .wrap {
+	padding: 9px 5%;
+}
+}
+footer .banner ul {
+	display: -webkit-flex;
+	display: flex;
+	height: auto;
+	margin: 0 auto;
+	overflow: visible;
+}
+footer .banner ul li a {
+	display: block;
+	border-radius: 5px;
+}
+footer .banner ul li img {
+	width: 100%;
+	border-radius: 5px;
+}
+footer .banner .banner_prev,
+footer .banner .banner_next {
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	top: 0;
+	background-color: #4E4E4E;
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 100%;
+	color: #FFF;
+	z-index: 100;
+	cursor: pointer;
+}
+footer .banner .banner_prev:after,
+footer .banner .banner_next:after {
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 20px;
+	top: 50%;
+	left: 50%;
+	margin-top: -10px;
+	box-sizing: border-box;
+	border: 2px solid #FFF;
+	border-radius: 50%;
+	-webkit-transform: scale(0.8,0.8);
+	transform: scale(0.8,0.8);
+	text-indent: 0;
+	text-align: center;
+	font-size: 10px;
+	font-family: 'Shin Go Regular';
+	line-height: 16px;
+	color: #FFF;
+	pointer-events: none;
+}
+footer .banner .banner_prev:after {
+	content: '<';
+	margin-left: -5px;
+}
+footer .banner .banner_next:after {
+	content: '>';
+	margin-left: -15px;
+}
+footer .banner .banner_prev {
+	left: 0;
+}
+footer .banner .banner_next {
+	right: 0;
+}
+@media screen and (max-width: 1024px) {
+footer .banner .banner_prev,
+footer .banner .banner_next {
+	width: 5%;
+}
+footer .banner .banner_prev:after,
+footer .banner .banner_next:after {
+	margin-left: -10px;
+}
+}

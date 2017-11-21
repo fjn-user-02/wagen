@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout" th:with="displayFooter=false, className=campaign_wrapper, modelId=${modelId}, generationId=${generationId}, categoryId=${categoryId}">
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout.html (Layouts/layout) */ -->
+		<th:block layout:fragment="content">
+			<article class="head">
+				<nav class="topicpath">
+					<ul>
+						<li class="top"><a th:href="@{/index}">TOP</a></li>
+						<li class="item"><a th:href="@{/item(model_id=${modelId},generation_id=${generationId},ctg=${categoryId})}">アクセサリー一覧</a></li>
+						<li class="campaign current"><span>キャンペーン</span></li>
+						<li class="quotation"><a th:href="@{/quotation(model_id=${modelId},generation_id=${generationId},ctg=${categoryId})}">お見積り</a></li>
+						<li class="model"><span class="name"><b th:text="${modelName}"></b></span><span class="type" th:text="${modelType}"></span></li>
+					</ul>
+				</nav>
+				<div class="wrap">
+					<section class="item_list">
+						<h2>キャンペーン・セール一覧</h2>
+					</section>
+				</div>
+			</article>
+			<article class="main">
+				<div class="wrap">
+					<section class="item_list">
+						<ul>
+							<li th:each="campaign : ${campaigns}" class="has_modal modal_content" th:id="${campaign.getItemCode()}" th:attr="obj_id=${campaign.getId()}, paint_flg=${campaign.getPaintFlg()}, model_id=${campaign.getModelId()}">
+								<div class="pic"><img th:if="${campaign.getImgPath()} != null" th:src="${campaign.getImgPath()}" th:alt="${campaign.getItemName()}"></div>
+								<div th:class="${'campaign c' + campaign.getSaleTag()}" th:text="${campaign.getSaleTitle()}" th:attr="sale_tag=${campaign.getSaleTag()}"></div>
+								<div class="info">
+									<div class="name">
+										<h3 class="item_name" th:text="${campaign.getItemName()}"></h3>
+										<div class="code" th:inline="text">[[${campaign.getPartsNo1()!=null?campaign.getPartsNo1():''}]] [[${campaign.getPartsNo2()!=null?campaign.getPartsNo2():''}]] [[${campaign.getPartsNo3()!=null?campaign.getPartsNo3():''}]] [[${campaign.getPartsNo4()!=null?campaign.getPartsNo4():''}]]</div>
+									</div>
+									<div class="cost">
+										<div class="price" th:inline="text">[[${campaign.getPriceInTax() != null ? #numbers.formatDecimal(campaign.getPriceInTax(), 0, 'COMMA', 0, 'POINT') : 0}]]<span class="net" th:text="${campaign.getPrice() != null ? #numbers.formatDecimal(campaign.getPrice(), 0, 'COMMA', 0, 'POINT') : 0}"></span></div>
+										<div class="wage">参考取付時間(H)：<span class="hour" th:text="${campaign.getCost() != null ? #numbers.formatDecimal(campaign.getCost(),1,1) : ''}"></span></div>
+									</div>
+								</div>
+								<div class="catch" th:utext="${#strings.replace( #strings.escapeXml( campaign.getDescription() != null? campaign.getDescription():'' ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"></div>
+								<div class="spec">
+									<div th:utext="${campaign.getSpec()}"></div>
+									<div th:utext="${campaign.getExcludedItem()}"></div>
+									<div th:utext="${campaign.getCaution()}"></div>
+									<div th:utext="${campaign.getMustItem()}"></div>
+									<div th:utext="${campaign.getSaleInfo()}"></div>
+								</div>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

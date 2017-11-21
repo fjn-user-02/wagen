@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="modal">
+			<div class="modal modal_summary">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<h2>見積り履歴</h2>
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main">
+						<ul class="summary_list" th:unless="${#lists.isEmpty(histories)}">
+							<li th:each="history:${histories}">
+								<a th:href="@{/quotation(model_id=${modelId},generation_id=${generationId},ctg=${categoryId},quotationumber=${history.estimatedNumber})}">
+									<span class="date" th:text="${#calendars.format(history.createDate,'yyyy.MM.dd')}"></span>
+									<span class="serial" th:text="'見積番号：' + ${history.estimatedNumber}"></span>
+									<span class="serial" th:text="'担当：' + ${history.createAccount}"></span>
+									<span class="update" th:text="'特記事項 : ' + ${#strings.abbreviate(history.memo,40)}"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal modal_model">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<h2>世代を選ぶ</h2>
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main"></div>
+				</div>
+			</div>
+			<div class="modal modal_account">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main">
+						<div class="account_name"><span th:text="${userName}"></span></div>
+						<form th:action="@{/logout}" method="post">
+							<button type="submit" class="logout">ログアウト</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal modal_item" data-id="">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main"></div>
+					<div class="modal_button"><button type="button" class="select">選択</button></div>
+				</div>
+			</div>
+			<div class="modal modal_pdf">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main">
+						<!--<iframe src=""></iframe>-->
+					</div>
+				</div>
+			</div>
+			<div class="modal modal_catalog">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<h2>アクセサリーカタログ</h2>
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main">
+						<ul class="catalog_list" th:unless="${#lists.isEmpty(catalogs)}">
+							<li th:each="catalog:${catalogs}" th:if="${catalog.publicType} == '1'" th:attr="data-pdf='pdfjs/web/viewer.html?file=' + @{${catalog.pdfPath}}">
+								<img th:src="@{${catalog.imgPath}}" th:alt="${catalog.publicName}">
+								<h3><span th:text="${catalog.publicName}"></span></h3>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal modal_movie">
+				<div class="modal_shade"></div>
+				<div class="modal_body">
+					<h2>アクセサリームービー</h2>
+					<div class="modal_close">閉じる</div>
+					<div class="modal_main">
+						<ul class="movie_list" th:unless="${#lists.isEmpty(movies)}">
+							<li th:each="movie:${movies}" th:if="${movie.publicType} == '0'">
+								<div class="movie">
+									<iframe width="560" height="315" th:src="@{${movie.moviePath}}" frameborder="0" allowfullscreen></iframe>
+									<div class="touch"></div>
+								</div>
+								<h3><span th:text="${movie.publicName}"></span></h3>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

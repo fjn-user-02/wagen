@@ -1,0 +1,575 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	z-index: 199;
+	transition-property: all;
+	transition-duration: 0.2s;
+	opacity: 0;
+	pointer-events: none;
+}
+.modal.on {
+	opacity: 1;
+	pointer-events: auto;
+}
+.modal .modal_shade {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+.modal .modal_body {
+	width: 90%;
+	height: auto;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	border-radius: 6px;
+	box-shadow: 0 0 10px 4px rgba(0,0,0,0.2);
+	overflow: visible;
+	-webkit-overflow-scrolling: touch;
+}
+.modal .modal_body h2 {
+	width: 100%;
+	height: 100px;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: 'Shin Go Light';
+	line-height: 100px;
+}
+.modal .modal_body .modal_main {
+	overflow: auto;
+}
+.modal .modal_body .modal_close {
+	position: absolute;
+	width: 34px;
+	height: 34px;
+	top: -17px;
+	right: -17px;
+	background-color: #02B18A;
+	border: 2px solid #FFF;
+	border-radius: 50%;
+	box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+	white-space: nowrap;
+	text-indent: 100%;
+	cursor: pointer;
+	z-index: 1;
+}
+.modal .modal_body .modal_close:before,
+.modal .modal_body .modal_close:after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 4px;
+	background-color: #FFF;
+	top: 50%;
+	left: 50%;
+	margin: -2px 0 0 -10px;
+}
+.modal .modal_body .modal_close:before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.modal .modal_body .modal_close:after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.modal.modal_model .modal_body {
+	margin: 205px auto 0;
+	padding: 0 20px 20px;
+	max-width: 410px;
+	max-height: 350px;
+}
+.modal.modal_model .modal_body .modal_main {
+	max-height: 230px;
+	height: auto;
+	overflow: auto;
+}
+.modal.modal_model .modal_body .modal_main ul li {
+	width: 100%;
+}
+.modal.modal_model .modal_body .modal_main ul li:not(:last-child) {
+	margin-bottom: 20px;
+}
+.modal.modal_model .modal_body .modal_main ul li a {
+	display: block;
+	height: 50px;
+	padding: 0 1em;
+	background-color: #E5E5E5;
+	line-height: 50px;
+	font-size: 12px;
+}
+.modal.modal_model .modal_body .modal_main ul li a > div {
+	display: inline-block;
+}
+.modal.modal_model .modal_body .modal_main ul li a > .gen:before {
+	content: '（';
+}
+.modal.modal_model .modal_body .modal_main ul li a > .name {
+	font-size: 1.35em;
+	font-family: 'VW Head Regular';
+}
+.modal.modal_model .modal_body .modal_main ul li a > .name b {
+	font-family: 'VW Head ExtraBold';
+}
+.modal.modal_model .modal_body .modal_main ul li a > .year:after {
+	content: '）';
+	font-family: 'Shin Go Regular', sans-serif;
+}
+.modal.modal_model .modal_body .modal_main ul li a > .year .from:after {
+	padding-left: 4px;
+	content: '-';
+}
+.modal.modal_item .modal_body {
+	margin: 22px auto 0;
+	padding: 12px;
+	max-width: 584px;
+	max-height: 720px;
+}
+.modal.modal_item .modal_body .modal_main {
+	max-height: 650px;
+	overflow: auto;
+}
+.modal.modal_item .modal_body .modal_main .pic:empty {
+	background-color: #CCC;
+	padding-top: 70%;
+}
+.modal.modal_item .modal_body .modal_main .pic:empty:after {
+	content: 'No Image';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 16px;
+	top: 50%;
+	left: 0;
+	margin-top: -8px;
+	text-align: center;
+	color: #FFF;
+}
+.modal.modal_item .modal_body .modal_main .pic img {
+	width: 100%;
+}
+.modal.modal_item .modal_body .modal_main .campaign {
+	width: 100%;
+	height: 32px;
+	text-align: center;
+	font-size: 15px;
+	font-family: 'Shin Go Bold';
+	line-height: 32px;
+	color: #FFF;
+}
+.modal.modal_item .modal_body .modal_main .info {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin: 25px 0;
+	font-size: 11px;
+}
+.modal.modal_item .modal_body .modal_main .info .name {
+	width: calc(100% - 190px);
+	padding: 0 10px;
+}
+.modal.modal_item .modal_body .modal_main .info .name .item_name {
+	font-size: 15px;
+	font-family: 'Shin Go Bold';
+	line-height: 1.5;
+}
+.modal.modal_item .modal_body .modal_main .info .name .code {
+	padding-top: 8px;
+	font-size: 13px;
+	font-family: 'VW Head Regular';
+}
+.modal.modal_item .modal_body .modal_main .info .cost {
+	width: 190px;
+	padding: 0 10px;
+	border-left: 1px solid #000;
+	font-size: 12px;
+}
+.modal.modal_item .modal_body .modal_main .info .cost .price {
+	font-family: 'Shin Go Bold';
+}
+.modal.modal_item .modal_body .modal_main .info .cost .price:before {
+	content: '¥';
+	font-family: 'Shin Go Bold';
+}
+.modal.modal_item .modal_body .modal_main .info .cost .price .net:before {
+	content: '（¥';
+	font-family: 'Shin Go Bold';
+}
+.modal.modal_item .modal_body .modal_main .info .cost .price .net:after {
+	content: '）';
+	font-family: 'Shin Go Bold';
+}
+.modal.modal_item .modal_body .modal_main .info .cost .wage {
+	padding: 10px 0 6px;
+}
+@media screen and (max-width: 640px) {
+.modal.modal_item .modal_body .modal_main .info .name {
+	width: 100%;
+	padding-bottom: 10px;
+}
+.modal.modal_item .modal_body .modal_main .info .cost {
+	width: 100%;
+	padding-top: 10px;
+	border-top: 1px solid #000;
+	border-left: none;
+}
+}
+.modal.modal_item .modal_body .modal_main .catch {
+	margin-bottom: 24px;
+	padding: 0 10px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #333;
+}
+.modal.modal_item .modal_body .modal_main .spec {
+	margin-bottom: 12px;
+	padding: 0 10px;
+	line-height: 1.5;
+	font-size: 13px;
+	color: #666;
+}
+.modal.modal_item .modal_body .modal_button {
+	padding-top: 10px;
+}
+.modal.modal_item .modal_body .modal_button button {
+	width: 140px;
+	height: 36px;
+	margin: 0 auto;
+	background-color: #0C5CB5;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 13px;
+	line-height: 36px;
+	color: #FFF;
+}
+.modal.modal_item:not(.selected) .modal_body .modal_button button.select:after {
+	content: 'する';
+}
+.modal.modal_item.selected .modal_body .modal_button button.select:after {
+	content: '解除';
+}
+
+.modal.modal_summary .modal_body {
+	margin: 22px auto 0;
+	padding: 0 20px 20px;
+	max-width: 600px;
+	max-height: 720px;
+}
+.modal.modal_summary .modal_body .modal_main {
+	max-height: 600px;
+	overflow: auto;
+}
+.modal.modal_summary .modal_body .summary_list li {
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid #CCC;
+}
+.modal.modal_summary .modal_body .summary_list li:first-child {
+	border-top: 1px solid #CCC;
+}
+.modal.modal_summary .modal_body .summary_list li a {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+	cursor: pointer;
+}
+.modal.modal_summary .modal_body .summary_list li a > span {
+	display: block;
+	height: 20px;
+	font-size: 11px;
+	
+	/* line-height: 50px; */
+}
+.modal.modal_summary .modal_body .summary_list li a .date {
+	width: 20%;
+	margin-top: 10px;
+}
+.modal.modal_summary .modal_body .summary_list li a .serial {
+	width: 30%;
+	margin-top: 10px;
+}
+.modal.modal_summary .modal_body .summary_list li a .staff {
+	width: 25%;
+	margin-top: 10px;
+}
+
+.modal.modal_summary .modal_body .summary_list li a .update {
+	width:100%;
+	text-align: left;
+	word-wrap:normal;
+	margin-top: 0px;
+}
+.modal.modal_summary .modal_body .summary_list li a .date,
+.modal.modal_summary .modal_body .summary_list li a .serial,
+.modal.modal_summary .modal_body .summary_list li a .update {
+	font-size: 13px;
+	font-family: 'VW Head Regular', 'Shin Go Regular';
+}
+@media screen and (max-width: 640px) {
+.modal.modal_summary .modal_body .summary_list li a > span {
+	height: 25px;
+	line-height: 25px;
+}
+.modal.modal_summary .modal_body .summary_list li a .date {
+	width: 40%;
+}
+.modal.modal_summary .modal_body .summary_list li a .serial {
+	width: 60%;
+	text-align: right;
+}
+.modal.modal_summary .modal_body .summary_list li a .update,
+.modal.modal_summary .modal_body .summary_list li a .staff {
+	width: 50%;
+}
+}
+.modal.modal_account .modal_body {
+	position: absolute;
+	width: 240px;
+	padding: 20px;
+	top: 60px;
+	left: 50%;
+	margin-left: -120px;
+}
+.modal.modal_account .modal_body .account_name {
+	width: 100%;
+	padding: 40px 0 20px;
+	background: url(../img/common/icon_account.png) no-repeat center top;
+	background-size: 30px 24px;
+	text-align: center;
+	font-size: 14px;
+}
+.modal.modal_account .modal_body button.logout {
+	width: 160px;
+	height: 42px;
+	margin: 0 auto;
+	background-color: #0C5CB5;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 13px;
+	line-height: 42px;
+	vertical-align: middle;
+	color: #FFF;
+}
+.modal.modal_movie .modal_body {
+	margin: 108px auto 0;
+	padding: 20px 45px;
+	max-width: 648px;
+	max-height: 500px;
+}
+.modal.modal_movie .modal_body h2 {
+	width: 100%;
+	height: 70px;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: 'Shin Go Light';
+	line-height: 70px;
+}
+.modal.modal_movie .modal_body .modal_main {
+	max-height: 390px;
+	overflow: auto;
+}
+.modal.modal_movie .modal_body .movie_list {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.modal.modal_movie .modal_body .movie_list li {
+	width: 33.333%;
+	height: auto;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+@media screen and (max-width: 640px) {
+.modal.modal_movie .modal_body {
+	padding: 20px;
+}
+.modal.modal_movie .modal_body .movie_list li {
+	width: 50%;
+}
+}
+@media screen and (max-width: 420px) {
+.modal.modal_movie .modal_body .movie_list li {
+	width: 100%;
+}
+}
+.modal.modal_movie .modal_body .movie_list li .movie {
+	width: 100%;
+	padding-top: 56.25%;
+}
+.modal.modal_movie .modal_body .movie_list li .movie.on {
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	z-index: 9999;
+}
+.modal.modal_movie .modal_body .movie_list li .movie .touch {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: 999;
+	cursor: pointer;
+}
+.modal.modal_movie .modal_body .movie_list li .movie.on .touch {
+	width: 40px;
+	height: 40px;
+	top: 10px;
+	right: 10px;
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 50%;
+}
+.modal.modal_movie .modal_body .movie_list li .movie.on .touch:before,
+.modal.modal_movie .modal_body .movie_list li .movie.on .touch:after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 28px;
+	height: 2px;
+	background-color: #FFF;
+	top: 50%;
+	left: 50%;
+	margin: -1px 0 0 -14px;
+	pointer-events: none;
+}
+.modal.modal_movie .modal_body .movie_list li .movie.on .touch:before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.modal.modal_movie .modal_body .movie_list li .movie.on .touch:after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.modal.modal_movie .modal_body .movie_list li h3 {
+	height: 32px;
+	font-size: 10px;
+	font-weight: normal;
+	line-height: 32px;
+}
+.modal.modal_movie .modal_body .movie_list li iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.modal.modal_movie.full,
+.modal.modal_movie.full .modal_body,
+.modal.modal_movie.full .modal_body .modal_main {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	max-width: none;
+	max-height: none;
+}
+.modal.modal_movie.full .modal_body .modal_close {
+	display: none;
+}
+.modal.modal_catalog .modal_body {
+	margin: 108px auto 0;
+	padding: 20px 45px;
+	max-width: 648px;
+	max-height: 500px;
+}
+.modal.modal_catalog .modal_body h2 {
+	width: 100%;
+	height: 70px;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: 'Shin Go Light';
+	line-height: 70px;
+}
+.modal.modal_catalog .modal_body .modal_main {
+	max-height: 390px;
+	overflow: auto;
+}
+.modal.modal_catalog .modal_body .catalog_list {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.modal.modal_catalog .modal_body .catalog_list li {
+	width: 33.333%;
+	height: auto;
+	margin-bottom: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+@media screen and (max-width: 640px) {
+.modal.modal_catalog .modal_body {
+	padding: 20px;
+}
+.modal.modal_catalog .modal_body .catalog_list li {
+	width: 50%;
+}
+}
+@media screen and (max-width: 420px) {
+.modal.modal_catalog .modal_body .catalog_list li {
+	width: 100%;
+}
+}
+.modal.modal_catalog .modal_body .catalog_list li img {
+	width: 100%;
+}
+.modal.modal_catalog .modal_body .catalog_list li h3 {
+	height: 32px;
+	font-size: 10px;
+	font-weight: normal;
+	line-height: 32px;
+}
+.modal.modal_pdf {
+	z-index: 299;
+}
+.modal.modal_pdf .modal_body {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 40px;
+	border: none;
+	border-radius: 0;
+	background-color: rgba(0,0,0,0.9);
+}
+.modal.modal_pdf .modal_body .modal_close {
+	width: 40px;
+	height: 40px;
+	top: 0;
+	right: 0;
+	border: none;
+	border-radius: 0;
+	background-color: #111;
+}
+.modal.modal_pdf .modal_body .modal_close:before,
+.modal.modal_pdf .modal_body .modal_close:after {
+	width: 28px;
+	height: 2px;
+	margin: -1px 0 0 -14px;
+}
+.modal.modal_pdf .modal_body .modal_main {
+	height: 100%;
+	overflow: auto;
+}
+.modal.modal_pdf .modal_body .modal_main iframe {
+	width: 100%;
+	height: 100%;
+}

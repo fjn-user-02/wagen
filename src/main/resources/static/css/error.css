@@ -1,0 +1,22 @@
+.art-error {
+	margin-top: 60px;
+	background-color: oldlace;
+}
+.art-error > div {
+	padding: 5px;
+}
+.art-error > div > h2 {
+	font-weight: bold;
+	font-size: 1.5em;
+	padding: 0px;
+	margin: 0px;
+}
+.error {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.error > a {
+	color: -webkit-link;
+	cursor: auto;
+	text-decoration: underline;
+}

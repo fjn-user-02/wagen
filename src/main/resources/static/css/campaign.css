@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.campaign_wrapper .head {
+	height: 170px;
+}
+.campaign_wrapper .main {
+	height: calc(100% - 230px);
+	top: 230px;
+}
+.item_list .campaign,
+.cart_list .campaign {
+	width: 100%;
+	height: 23px;
+	text-align: center;
+	font-size: 11px;
+	font-family: 'Shin Go Bold';
+	line-height: 23px;
+	color: #FFF;
+}
+.cart_list .campaign {
+	height: 16px;
+	font-size: 10px;
+	line-height: 16px;
+}
+.campaign.c1 {
+	background-color: #FF0000;
+}
+.campaign.c2 {
+	background-color: #FF7719;
+}
+.campaign.c3 {
+	background-color: #8C97CB;
+}
+.campaign.c4 {
+	background-color: #CFA972;
+}

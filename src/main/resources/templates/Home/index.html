@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout" th:with="displayFooter=true, modelId=${modelId}, generationId=${generationId}, categoryId=${categoryId}">
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout.html (Layouts/layout) */ -->
+		<th:block layout:fragment="content">
+			<article class="head">
+				<div class="wrap">
+					<section class="model_list">
+						<h2>モデルを選ぶ</h2>
+						<div class="search_area">
+							<form action="item.html">
+								<input name="keyword" class="keyword" value="" placeholder="品番・アイテム名で検索">
+								<button type="submit" class="search_btn">検索</button>
+							</form>
+						</div>
+					</section>
+				</div>
+			</article>
+			<article class="main">
+				<div class="wrap">
+					<section class="model_list">
+						<ul>
+							<li th:each="model : ${models}" th:class="${not #lists.isEmpty(model.getModelGenerationRels())}? 'has_modal'">
+								<a	th:if="${model.freeFlg} == '1'" th:href="@{/item(model_id=${model.getId()})}">
+									<div class="pic"><img th:if="${model.getImgPath()} != null" th:src="${model.getImgPath()}" th:alt="${model.getModelName()}"></div>
+									<div class="info">
+										<h3 class="name" th:attr="lang=${model.getLanguageFlg() == 1 ? 'ja':'en'}" th:inline="text">
+											<b th:text="${model.getModelNameB()}"></b>
+											[[${model.getModelName() != null? model.getModelName() : ''}]]
+											<br/>
+										</h3>
+										<div class="year" th:if="${model.getSaleStart() != null}"><span class="from" th:text="${model.getSaleStart()}"></span><span class="to"></span></div>
+									</div>
+								</a>
+								<div th:unless="${#lists.isEmpty(model.getModelGenerationRels())}" th:if="${model.freeFlg} == '0'">
+									<div class="pic"><img th:if="${model.getImgPath()} != null" th:src="${model.getImgPath()}" th:alt="${model.getModelName()}"></div>
+									<div class="info">
+										<h3 class="name" th:attr="lang=${model.getLanguageFlg() == 1 ? 'ja':'en'}" th:inline="text">
+											<b th:text="${model.getModelNameB()}"></b>
+											[[${model.getModelName() != null? model.getModelName() : ''}]]
+											<br/>
+										</h3>
+										<div class="year"><span class="from" th:text="${model.getSaleStart()}"></span><span class="to"></span></div>
+									</div>
+									<div class="generation modal_content" th:if="${not #lists.isEmpty(model.getSortListGenerationMst())}">
+										<ul>
+											<li th:each="generation : ${model.getSortListGenerationMst()}">
+												<a th:href="@{/item(model_id=${model.getId()}, generation_id=${generation.getId()})}">
+													<div class="type" th:text="${model.getModelType()}"></div>
+													<div class="gen" th:text="${generation.getGeneration() != null?generation.getGeneration() + '代目':''}"></div>
+													<div class="name" th:inline="text"><b th:text="${model.getModelNameB()!= null?model.getModelNameB():''} + ' '"></b>
+														[[${model.getModelName() != null? model.getModelName(): ''}]]
+													</div>
+													<div class="year">
+														<span class="from" th:text="${generation.getSaleStart()}"></span>
+														<span class="to" th:text="${generation.getSaleEnd()}"></span>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

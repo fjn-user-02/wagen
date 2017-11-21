@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<body th:inline="text">
+		[[${staffName}]]様<br/><br/>
+		<div>
+			見積番号： [[${quotationNumber}]]を印刷する場合は、以下のURLにアクセスして、印刷してください。<br/><br/>
+			<a th:href="${url}">[[${url}]]</a><br/><br/>
+		</div>
+	</body>
+</html>

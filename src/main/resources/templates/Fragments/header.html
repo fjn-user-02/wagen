@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<header th:fragment="header">
+			<div class="wrap">
+				<h1><b>VW</b> Digital Accessories Catalogue</h1>
+				<nav class="navi">
+					<ul>
+						<li class="account" th:inline="text">[[${userName}]]</li>
+						<li class="logout"><a href="javascript:void(0)">ログアウト</a></li>
+						<li class="quotation"><a href="javascript:void(0)">見積り</a></li>
+						<li class="clear"><a href="javascript:void(0)" th:attr="data-url=@{/index}">クリア</a></li>
+						<li class="cart"><a th:href="@{/quotation(model_id=${modelId},generation_id=${generationId},ctg=${categoryId})}">カート</a><div class="badge"></div></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</body>
+</html>

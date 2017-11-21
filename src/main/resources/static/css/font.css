@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* VWHead */
+@font-face {
+	font-family: 'VW Head Regular';
+	src: url('../_font/VWHeadWeb-Regular.ttf') format('truetype'),
+	url('../_font/VWHeadWeb-Regular.eot') format('eot'),
+	url('../_font/VWHeadWeb-Regular.svg') format('svg'),
+	url('../_font/VWHeadWeb-Regular.woff') format('woff'),
+	url('../_font/VWHeadWeb-Regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'VW Head Bold';
+	src: url('../_font/VWHeadWeb-Bold.ttf') format('truetype'),
+	url('../_font/VWHeadWeb-Bold.eot') format('eot'),
+	url('../_font/VWHeadWeb-Bold.svg') format('svg'),
+	url('../_font/VWHeadWeb-Bold.woff') format('woff'),
+	url('../_font/VWHeadWeb-Bold.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'VW Head ExtraBold';
+	src: url('../_font/VWHeadWeb-ExtraBold.ttf') format('truetype'),
+	url('../_font/VWHeadWeb-ExtraBold.eot') format('eot'),
+	url('../_font/VWHeadWeb-ExtraBold.svg') format('svg'),
+	url('../_font/VWHeadWeb-ExtraBold.woff') format('woff'),
+	url('../_font/VWHeadWeb-ExtraBold.woff2') format('woff2');
+}

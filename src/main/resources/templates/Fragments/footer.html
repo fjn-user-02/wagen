@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<footer th:fragment="footer">
+			<section class="info">
+				<div class="wrap">
+					<h3>お知らせ</h3>
+					<span class="date">2017.09.30</span>
+					<span class="text">Golfの第2世代を追加しました。</span>
+				</div>
+			</section>
+			<section class="banner">
+				<div class="wrap banner_wrap">
+					<div class="banner_prev">前へ</div>
+					<div class="banner_next">次へ</div>
+					<ul class="swiper-wrapper banner_list" th:unless="${#lists.isEmpty(banners)}">
+						<li class="swiper-slide" th:each="banner:${banners}" th:classappend="${banner.areaName}">
+							<a href="javascript:void(0)"><img th:attr="src=@{${banner.imgPath}}, alt=@{${banner.areaName}}"></a>
+						</li>
+					</ul>
+				</div>
+				<input type="hidden" id="bannerSize" th:value="${bannerSize}"></input>
+			</section>
+		</footer>
+	</body>
+</html>

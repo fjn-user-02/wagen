@@ -1,0 +1,240 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.item_wrapper .head {
+	height: 176px;
+}
+.item_wrapper .main {
+	height: calc(100% - 236px);
+	top: 236px;
+}
+.category {
+	width: 100%;
+	height: auto;
+	padding: 32px 5% 26px;
+}
+.category > ul {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.category > ul > li {
+	width: 16.666%;
+	padding: 2px;
+}
+.category > ul > li:nth-child(6n + 1) {
+	padding-left: 0;
+}
+.category > ul > li:nth-child(6n) {
+	padding-right: 0;
+}
+.category > ul > li a,
+.category > ul > li span {
+	display: block;
+	height: 30px;
+	background-color: #CCC;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 11px;
+	color: #FFF;
+}
+.category > ul > li .current {
+	background-color: #02B18A;
+}
+@media screen and (max-width: 860px) {
+.item_wrapper .head {
+	height: 210px;
+}
+.item_wrapper .main {
+	height: calc(100% - 270px);
+	top: 270px;
+}
+.category > ul > li {
+	width: 25%;
+}
+.category > ul > li:nth-child(6n + 1),
+.category > ul > li:nth-child(6n) {
+	padding: 2px;
+}
+.category > ul > li:nth-child(4n + 1) {
+	padding-left: 0;
+}
+.category > ul > li:nth-child(4n) {
+	padding-right: 0;
+}
+}
+@media screen and (max-width: 640px) {
+.item_wrapper .head {
+	height: 244px;
+}
+.item_wrapper .main {
+	height: calc(100% - 284px);
+	top: 284px;
+}
+.category {
+	padding: 22px 5% 16px;
+}
+.category > ul > li {
+	width: 33.333%;
+}
+.category > ul > li:nth-child(4n + 1),
+.category > ul > li:nth-child(4n) {
+	padding: 2px;
+}
+.category > ul > li:nth-child(3n + 1) {
+	padding-left: 0;
+}
+.category > ul > li:nth-child(3n) {
+	padding-right: 0;
+}
+}
+@media screen and (max-width: 480px) {
+.category > ul > li a,
+.category > ul > li span {
+	font-size: 10px;
+}
+}
+
+.item_list {
+	width: 100%;
+	padding: 0 5%;
+}
+.item_list h2 {
+	width: 50%;
+	height: 120px;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: 'Shin Go Light';
+	line-height: 120px;
+}
+.item_list > ul {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.item_list > ul > li {
+	width: 24.1%;
+	margin: 0 1.2% 20px 0;
+	cursor: pointer;
+}
+.item_list > ul > li:nth-child(4n) {
+	margin-right: 0;
+}
+@media screen and (max-width: 860px) {
+.item_list > ul > li {
+	width: 32.3%;
+	margin: 10px 1.55% 10px 0;
+}
+.item_list > ul > li:nth-child(4n) {
+	margin-right: 1.55%;
+}
+.item_list > ul > li:nth-child(3n) {
+	margin-right: 0;
+}
+}
+@media screen and (max-width: 640px) {
+.item_list > ul > li {
+	width: 48.8%;
+	margin: 10px 2.4% 10px 0;
+}
+.item_list > ul > li:nth-child(3n) {
+	margin-right: 2.4%;
+}
+.item_list > ul > li:nth-child(2n) {
+	margin-right: 0;
+}
+}
+@media screen and (max-width: 420px) {
+.item_list > ul > li {
+	width: 100%;
+	margin: 10px 0;
+}
+}
+.item_list > ul > li.selected:before,
+.item_list > ul > li.selected:after {
+	content: '';
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	z-index: 1;
+}
+.item_list > ul > li.selected:before {
+	width: 32px;
+	height: 32px;
+	top: 8px;
+	right: 8px;
+	background-color: #02B18A;
+	border-radius: 50%;
+}
+.item_list > ul > li.selected:after {
+	width: 18px;
+	height: 8px;
+	top: 19px;
+	right: 16px;
+	box-sizing: border-box;
+	border-left: 3px solid #FFF;
+	border-bottom: 3px solid #FFF;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.item_list > ul > li .pic {
+	width: 100%;
+	padding-top: 70%;
+}
+.item_list > ul > li .pic:empty {
+	background-color: #CCC;
+}
+.item_list > ul > li .pic:empty:after {
+	content: 'No Image';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 16px;
+	top: 50%;
+	left: 0;
+	margin-top: -8px;
+	text-align: center;
+	color: #FFF;
+}
+.item_list > ul > li .pic img {
+	position: absolute;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	max-height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.item_list > ul > li .info .item_name {
+	padding-top: 4px;
+	font-size: 11px;
+	line-height: 15px;
+}
+.item_list > ul > li .info .price {
+	padding-top: 4px;
+	font-size: 10px;
+	color: #999;
+}
+.item_list > ul > li .info .price:before {
+	content: '¥';
+}
+.item_list > ul > li .info .price .net:before {
+	content: '（¥';
+}
+.item_list > ul > li .info .price .net:after {
+	content: '）';
+}
+.item_list > ul > li .info .code,
+.item_list > ul > li .info .cost .wage,
+.item_list > ul > li .catch,
+.item_list > ul > li .spec {
+	display: none;
+}

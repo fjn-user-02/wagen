@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layouts/layout_blank">
+	<body>
+		<!-- /* Content of this page will be decorated by the elements of layout_blank.html (Layouts/layout) */ -->
+		<th:block layout:fragment="content">
+			<article class="main">
+				<div class="wrap">
+					<section class="form">
+						<form class="login_form" th:action="@{/shop}" method="post">
+							<fieldset class="id">
+								<div class="message error002" th:if="${!errorDb && param.error != null}" th:inline="text">[[#{message.error.002}]]</div>
+								<div class="message error001" style="display: none;" th:inline="text">[[#{message.error.001}]]</div>
+								<input type="text" id="username" name="username" maxlength="20" placeholder="ログインID" />
+							</fieldset>
+							<fieldset class="password">
+								<input type="password" id="password" name="password" maxlength="20" placeholder="パスワード" />
+							</fieldset>
+							<fieldset class="button_area">
+								<button type="submit" name="btnSubmit" class="login">ログイン</button>
+							</fieldset>
+						</form>
+						<a th:href="@{/change_password(loginUrl=admin)}" class="link">パスワード変更はこちら</a>
+					</section>
+				</div>
+			</article>
+		</th:block>
+	</body>
+</html>

@@ -1,0 +1,412 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.quotation_wrapper .head {
+	height: 150px;
+}
+.quotation_wrapper .main {
+	height: calc(100% - 210px);
+	top: 210px;
+}
+.quotation_wrapper.print header {
+	position: relative;
+	box-shadow: none;
+}
+.quotation_wrapper.print .head {
+	position: relative;
+	height: auto;
+	top: auto;
+}
+.quotation_wrapper.print .main {
+	position: relative;
+	height: auto;
+	top: auto;
+}
+
+.cart_list {
+	width: 100%;
+	padding: 0 5%;
+}
+.cart_list h2 {
+	width: 100%;
+	height: 100px;
+	font-size: 22px;
+	font-weight: normal;
+	font-family: 'Shin Go Light';
+	line-height: 100px;
+}
+.cart_list .button_area {
+	position: absolute;
+	display: inline-block;
+	height: 32px;
+	top: 34px;
+	right: 5%;
+	z-index: 1;
+}
+.cart_list .button_area button {
+	display: block;
+	width: 105px;
+	height: 32px;
+	background-color: #02B18A;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 25px 21px;
+	border-radius: 3px;
+	text-indent: 24px;
+	font-size: 11px;
+	color: #FFF;
+	float: left;
+}
+@media screen and (max-width: 480px) {
+.cart_list .button_area {
+	height: 40px;
+	top: 30px;
+}
+.cart_list .button_area button {
+	width: 40px;
+	height: 40px;
+	background-position: center 4px;
+	padding-top: 26px;
+	text-align: center;
+	text-indent: 0;
+	font-size: 10px;
+}
+}
+.cart_list .button_area button.mail {
+	background-image: url(../img/common/icon_mail.png);
+}
+.cart_list .button_area button.save {
+	background-image: url(../img/common/icon_save.png);
+}
+.cart_list .button_area button:not(:last-of-type) {
+	margin-right: 5px;
+}
+.cart_list .serial {
+	position: absolute;
+	display: inline-block;
+	top: 84px;
+	left: 5%;
+	font-size: 12px;
+	font-family: 'VW Head Regular';
+	z-index: 1;
+}
+.cart_list > ul {
+	width: 100%;
+}
+.cart_list > ul:empty:after {
+	content: 'アイテムが選択されていません。';
+	display: block;
+	width: 100%;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	font-size: 14px;
+	color: #999;
+}
+.cart_list > ul > li {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 17px 0;
+	border-bottom: 1px solid #CCC;
+}
+.cart_list > ul > li:first-child {
+	border-top: 1px solid #CCC;
+}
+.cart_list > ul > li .pic {
+	width: 145px;
+	margin-right: 25px;
+}
+.cart_list > ul > li .pic img {
+	width: 100%;
+	height: auto;
+}
+.cart_list > ul > li .info {
+	width: calc(64% - 170px);
+}
+.cart_list > ul > li .info .item_name {
+	padding: 3px 0;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 1.5;
+}
+.cart_list > ul > li .info .item_name .campaign_name:before {
+	content: '[';
+}
+.cart_list > ul > li .info .item_name .campaign_name:after {
+	content: ']';
+	padding-right: 0.5em;
+}
+.cart_list > ul > li .info .code {
+	padding: 2px 0;
+	font-size: 13px;
+	font-family: 'VW Head Regular';
+}
+.cart_list > ul > li .info .delete {
+	display: inline-block;
+	margin-top: 4px;
+	padding: 6px 0;
+	background-color: transparent;
+	font-size: 12px;
+	color: #F00;
+	cursor: pointer;
+}
+.cart_list > ul > li .cost {
+	width: 36%;
+}
+@media screen and (max-width: 860px) {
+.cart_list > ul > li .info {
+	width: calc(100% - 170px);
+}
+.cart_list > ul > li .cost {
+	width: 100%;
+	padding-top: 17px;
+}
+}
+.subtotal,
+.total {
+	width: 100%;
+	padding: 0 5%;
+}
+.charge {
+	width: 100%;
+	padding: 10px 5%;
+}
+.cart_list > ul > li .cost > div,
+.charge > div,
+.subtotal > div,
+.total > div {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.charge > div {
+	padding: 7px 0 7px 64%;
+}
+.subtotal > .net {
+	padding: 18px 0 7px 64%;
+	border-top: 1px solid #CCC;
+}
+.subtotal > .tax {
+	padding: 7px 0 18px 64%;
+}
+.total > div {
+	padding: 20px 0 20px 64%;
+}
+@media screen and (max-width: 860px) {
+.charge > div {
+	padding: 7px 0;
+}
+.subtotal > .net {
+	padding: 18px 0 7px;
+}
+.subtotal > .tax {
+	padding: 7px 0 18px;
+}
+.total > div {
+	padding: 20px 0;
+}
+}
+.total > div {
+	border-top: 4px solid #000;
+}
+.cart_list > ul > li .cost > div > .label {
+	width: 100px;
+	font-size: 11px;
+}
+.cart_list > ul > li .cost > .paint > .label,
+.cart_list > ul > li .cost > .discount > .label,
+.charge > div > .label,
+.subtotal > div > .label {
+	width: calc(100% - 165px);
+}
+.total > div > .label {
+	width: calc(100% - 155px);
+}
+.cart_list > ul > li .cost > div > .quantity,
+.cart_list > ul > li .cost > div > .hour {
+	width: calc(100% - 265px);
+}
+.cart_list > ul > li .cost > div > .quantity span.number,
+.cart_list > ul > li .cost > div > .hour {
+	font-size: 13px;
+	font-family: 'VW Head Regular';
+}
+.cart_list > ul > li .cost > div > .quantity select.number {
+	width: 60px;
+	height: 25px;
+	background-color: #E9E9E9;
+	border: 1px solid #999;
+	border-radius: 3px;
+	text-indent: 1em;
+}
+.cart_list > ul > li .cost > div > .price,
+.charge > div > .price,
+.subtotal > div > .price {
+	width: 165px;
+	text-align: right;
+}
+.cart_list > ul > li .cost > div > .price,
+.charge > div > .price {
+	font-size: 13px;
+}
+.total > div > .price {
+	width: 155px;
+	text-align: right;
+}
+.cart_list > ul > li .cost > div {
+	padding-bottom: 12px;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .wage {
+	padding-bottom: 16px;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount {
+	height: 42px;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount .label {
+	padding: 14px 0 14px 24px;
+	overflow: visible;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount .label .toggle {
+	position: absolute;
+	display: block;
+	width: 38px;
+	height: 38px;
+	top: 0;
+	left: -9px;
+	cursor: pointer;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount .label .toggle:before {
+	content: '−';
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 20px;
+	top: 9px;
+	left: 9px;
+	background-color: #CCC;
+	border-radius: 50%;
+	text-indent: 0;
+	text-align: center;
+	line-height: 20px;
+	color: #FFF;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount.hide .label .toggle:before {
+	content: '＋';
+}
+/*
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount .label .toggle:after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 10px;
+	height: 10px;
+	top: 50%;
+	left: 50%;
+	margin: -3px 0 0 -5px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	-webkit-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: .2s;
+	transition-duration: .2s;
+	-webkit-transform: rotate(225deg);
+	transform: rotate(225deg);
+	cursor: pointer;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount.hide .label .toggle:after {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin: -7px 0 0 -5px;
+}
+*/
+.wrapper.print .cart_list > ul > li .cost > .discount.hide {
+	display: none;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount.hide .price {
+	display: none;
+}
+.wrapper:not(.print) .cart_list > ul > li .cost > .discount.hide .label {
+	white-space: nowrap;
+	text-indent: 100%;
+}
+.cart_list > ul > li .cost > div > .price:not(:empty):before,
+.charge > div > .price:not(:empty):before,
+.subtotal > div > .price:not(:empty):before,
+.total > div > .price:not(:empty):before {
+	content: '¥';
+}
+.cart_list > ul > li .cost > div > .price.discount_price:not(:empty):before,
+.charge > div > .price.discount_price:not(:empty):before {
+	content: '-¥';
+}
+.cart_list > ul > li .cost > div > .price:empty:before,
+.charge > div > .price:empty:before {
+	padding-right: 1.5em;
+	content: '−';
+}
+.cart_list > ul > li .cost > div > input.price,
+.charge > div > input.price,
+.charge > div > input.text {
+	height: 30px;
+	padding-right: 0.8em;
+	border: 1px solid #999;
+	border-radius: 3px;
+	font-size: 13px;
+	font-family: 'Shin Go Regular';
+}
+.cart_list > ul > li .cost > div > input.price::-webkit-input-placeholder,
+.charge > div > input.price::-webkit-input-placeholder,
+.charge > div > input.text::-webkit-input-placeholder {
+	font-size: 11px;
+	font-family: 'Shin Go Regular';
+	color: #666;
+}
+.charge > div > .text {
+	width: 100%;
+	padding: 0 0.6em;
+	font-size: 12px;
+}
+.quotation_wrapper.print .charge > div > .text {
+	display: block;
+	padding: 0.8em 0 0;
+	word-wrap: break-word;
+}
+.charge > div > .label {
+	font-size: 11px;
+}
+.subtotal > div > span {
+	height: 20px;
+	line-height: 20px;
+}
+.charge > div > span,
+.subtotal > div > span {
+	font-size: 13px;
+}
+.total > div > .price {
+	font-size: 20px;
+}
+.no-image {
+	width: 145px;
+	height: 100px;
+}
+.no-image:empty {
+	background-color: #CCC;
+}
+.no-image:empty:after {
+	content: 'No Image';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 16px;
+	top: 50%;
+	left: 0;
+	margin-top: -8px;
+	text-align: center;
+	color: #FFF;
+}
